@@ -16,8 +16,8 @@ var (
 )
 
 type Config struct {
-	Mnemo      []string `toml:"mnemo"`
-	PublicKeys []string `toml:"public_key"`
+	Mnemo       []string `toml:"mnemo"`
+	PrivateKeys []string `toml:"private_key"`
 }
 
 func main() {
@@ -52,7 +52,7 @@ func main() {
 		pk = append(pk, privKeyStr)
 
 	}
-	conf.PublicKeys = pk
+	conf.PrivateKeys = pk
 
 	encoder := toml.NewEncoder(&buffer)
 	if err := encoder.Encode(conf); err != nil {
